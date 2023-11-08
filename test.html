@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>匿名留言</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #messageForm {
+            margin-bottom: 20px;
+        }
+        #messages {
+            border-top: 1px solid #ccc;
+            padding-top: 20px;
+        }
+        .message {
+            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+        }
+    </style>
+    <!-- Firebase SDK -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+        
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDrIX-CbxXu6rv-xKRvuB5IMXSPOX-8kv8",
+            authDomain: "mochi-github.firebaseapp.com",
+            projectId: "mochi-github",
+            storageBucket: "mochi-github.appspot.com",
+            messagingSenderId: "986540537448",
+            appId: "1:986540537448:web:4f805eaf5dd8cc51822ddd",
+            measurementId: "G-1TYH6MF4LW"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // 提交留言
+        document.getElementById('messageForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const message = document.getElementById('message').value;
+            try {
+                await addDoc(collection(db, "messages"), {
+                    message: message,
+                    timestamp: new Date()
+                });
+                document.getElementById('message').value = '';
+                loadMessages();
+            } catch (e) {
+                console.error("Error adding document: ", e);
+            }
+        });
+
+        // 加載留言
+        async function loadMessages() {
+            const q = query(collection(db, "messages"), orderBy("timestamp", "desc"));
+            const querySnapshot = await getDocs(q);
+            const messagesDiv = document.getElementById('messages');
+            messagesDiv.innerHTML = '';
+            querySnapshot.forEach((doc) => {
+                const messageElement = document.createElement('div');
+                messageElement.textContent = doc.data().message;
+                messageElement.className = 'message';
+                messagesDiv.appendChild(messageElement);
+            });
+        }
+
+        // 初始加載留言
+        window.onload = loadMessages;
+    </script>
+</head>
+<body>
+    <h1>匿名留言</h1>
+    <form id="messageForm">
+        <textarea id="message" placeholder="在這裡輸入留言"></textarea>
+        <button type="submit">提交</button>
+    </form>
+    <div id="messages"></div>
+</body>
+</html>
