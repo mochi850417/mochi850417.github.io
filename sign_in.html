@@ -1,0 +1,248 @@
+<!doctype html>
+<html prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta property="og:type" content="website" />
+    <meta name="google-signin-client_id" content="862033689785-mib6repc88cv7c9oiakmv3v4po39ujo2.apps.googleusercontent.com">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="./assets/css/flags.css">
+
+    <link href="./assets/css/style.css" rel="stylesheet">
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src='./assets/js/jquery.flagstrap.js'></script>
+
+
+
+</head>
+
+<body>
+    <header>
+        <div class="full-container">
+            <a href="index.html" class="logo"><img src="assets/images/logo.svg" alt=""></a>
+            <div class="expend close">
+                <!-- open/close -->
+                <span></span><span></span><span></span><span></span>
+            </div>
+            <ul class="navBar">
+                <a href="index.html" class="mb">
+                    <li><img src="assets/images/logo.svg" alt=""></li>
+                </a>
+                <!-- <a href="about.html">
+                    <li data-i18n="about">ABOUT</li>
+                </a>
+                <a href="faq.html">
+                    <li data-i18n="faq">FAQ</li>
+                </a>
+                <a href="#">
+                    <li data-i18n="blog">BLOG</li>
+                </a>
+                <a href="download.html">
+                    <li data-i18n="download">DOWNLOAD</li>
+                </a> -->
+                <a href="sign_in.html">
+                    <li data-i18n="signin">SIGN IN</li>
+                </a>
+                 <div class="language">
+                    <div class="earthicon"><img src="./src/img/language/earth.png"></div>
+                    <div id="us"><p>English</p></div>
+                    <div id="tw"><p>中文(繁體)</p></div>
+                </div>
+            </ul>
+        </div>
+    </header>
+
+    <main class="sign sign_in">
+        <section class="kv">
+            <video width="1920" height="1080" autoplay loop muted playsinline>
+                <source src="assets/images/kv.mp4" type="video/mp4">
+            </video>
+            <div class="kvBg">
+                <div class="kvBgBtm"></div>
+            </div>
+            <div class="dot"></div>
+            <div class="bgPattern01"><img src="assets/images/bgPattern01.png" alt=""></div>
+            <div class="container">
+          
+                <div class="board_black" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                    <div id="alertMsg"></div>
+                    <ul class="signHeader">
+                        <a href="sign_in.html">
+                            <li class="active" data-i18n="signin">SIGN IN</li>
+                        </a>
+                        <a href="sign_up.html">
+                            <li class="" data-i18n="signup">SIGN UP</li>
+                        </a>
+                    </ul>
+                    <div class="inputArea">
+                        <div class="form-group">
+                            <div class="inputLabel" data-i18n="email_address">Email Address</div>
+                            <div id="emailMsg" class="alertMsg"></div>
+                            <input type="text" placeholder="ex: storm@gmail.com" id="loginemail" oninput="removeBorder()" onkeyup="this.value=this.value.replace(/^\s*/g,'')"  required>
+                        </div>
+                        <div class="form-group">
+                            <div class="inputLabel" data-i18n="password">Password</div>
+                            <div id="passwordMsg" class="alertMsg"></div>
+                            <input type="password" id="loginpassword" oninput="removeBorder()" onkeyup="this.value=this.value.replace(/^\s*/g,'')"  required>
+                        </div>
+                        <button class="signBtn" onclick="userlogin()" data-i18n="signin">SIGN IN</button>
+                        <div class="forgetBtn">
+                            <a href="forget01.html" data-i18n="forget_password">Forget Password?</a>
+                        </div>
+                        <div class="thirdParty">
+                            <div class="fb-login-button fb-gap" data-width="" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" onlogin="checkLoginState()"></div>                
+                            <div class="g-signin2" data-width="228" data-height="40" data-onsuccess="onSignIn" data-prompt="select_account"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="bgPattern02"><img src="assets/images/bgPattern02.png" alt=""></div>
+
+        <div class="full-container">
+            <div class="left">
+                <a href="index" class="logo"><img src="assets/images/logo.svg" alt=""></a>
+
+            </div>
+            <div class="right">
+                <ul>
+                    <li data-toggle="modal" data-target="#termofuse" data-i18n="terms_of_use" onclick="TermsOfUse()">Terms of use</li>
+                    <li data-toggle="modal" data-target="#privacypolicy" data-i18n="privacy_policy" onclick="privacyPolicy()">Privacy Policy</li>
+                    <li data-toggle="modal" data-target="#cookiepolicy" data-i18n="cookie_policy"onclick="cookiePolicy()">Cookie Policy</li>
+                </ul>
+                <div>Copyright © 2020. All Rights Reserved.</div>
+            </div>
+        </div>
+    </footer>
+<div id="fb-root"></div>
+
+</body></html>
+<div id="TermsOfUse"></div>
+<script src="assets/js/TermsOfUse.js"></script>
+<script>
+
+	AOS.init({
+		once: true,
+
+	});
+
+	$(window).bind('scroll resize', function(){
+		if($(this).scrollTop() >= 100){
+	        $('header').css('background-color','#000');
+	    }else{
+	    	$('header').css('background-color','transparent');
+	    }
+	}).scroll();
+
+
+
+	$('.slideBox').slick({
+		dots: true,
+		arrows: true,
+		infinite: true,
+		autoplay: true,
+		speed: 1000,
+		slidesToShow: 1,
+		autoplaySpeed: 5000,
+		prevArrow: '<div class="slick-prev slide-prev"><i class="fas fa-chevron-left fa-2x"></i></div>',
+		nextArrow: '<div class="slick-next slide-next"><i class="fas fa-chevron-right fa-2x"></i></div>',
+	});
+
+
+
+	 $('.gameList_for').slick({
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		arrows: false,
+		fade: true,
+		asNavFor: '.gameList_Box'
+	});
+	$('.gameList_Box').slick({
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		asNavFor: '.gameList_for',
+		dots: true,
+		centerMode: true,
+		focusOnSelect: true,
+		prevArrow: '<div class="slick-prev slide-prev"><i class="fas fa-chevron-left"></i></div>',
+		nextArrow: '<div class="slick-next slide-next"><i class="fas fa-chevron-right"></i></div>',
+	});
+
+	$('.gameImgBox').slick({
+		dots: true,
+		arrows: false,
+		infinite: true,
+		autoplay: true,
+		speed: 1000,
+		slidesToShow: 3,
+		slidesToScroll: 3,
+		autoplaySpeed: 5000,
+	});
+
+
+
+	$(document).on('click','.close',function(){
+		$(this).addClass("open");
+		$(this).removeClass("close");
+		$(".navBar").css("right","0");
+	});
+	$(document).on('click','.open',function(){
+		$(this).addClass("close");
+		$(this).removeClass("open");
+		$(".navBar").css("right","-100%");
+	});
+
+	$("#birthDate").flatpickr({
+		dateFormat: "m-d-Y",
+	});
+
+	jQuery(document).ready(function($) {
+
+		$('#language').flagStrap({
+		    countries: {
+		        "TW": "TW",
+		        "JP": "JP",
+		        "US": "EN",
+
+		    },
+		    inputName: 'country',
+		    scrollable: false,
+		    scrollableHeight: "350px",
+		    onSelect: function(value, element) {
+		        //
+		    },
+		    placeholder: {
+		        value: "",
+		        text: ""
+		    }
+		});
+	});
+
+
+
+
+</script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="src/js/vendor/login.js"></script>
+<script src="src/js/vendor/thirdParty.js"></script>
+<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+<script src="./src/js/vendor/language/i18n.js"></script>

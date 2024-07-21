@@ -4,15 +4,17 @@
   <meta charset="UTF-8">
   <title>登入資訊</title>
   <link rel="stylesheet" href="css/login style.css">
-
 </head>
 <body>
 <!-- partial:index.partial.html -->
 <section>
   <div class="form-box">
     <div class="form-value">
-      <form action="">
-        <h2>登入</h2>
+      
+      <form class="" action="">
+        
+        <h2>登入</h2>    
+
         <div class="inputbox">
           <ion-icon name="person-outline"></ion-icon>
           <input type="text" name="usrname" required>
@@ -30,8 +32,37 @@
         </div>
         
         <button>登入</button>
-      </form>
-      
+      </form>      
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="back">
+  <div class="form-box">
+    <div class="form-value">
+      <form class="" action="">
+        <h2>登入</h2>
+        
+
+        <div class="inputbox">
+          <ion-icon name="person-outline"></ion-icon>
+          <input type="text" name="usrname" required>
+          <label for="">帳號</label>
+        </div>
+        <div class="inputbox">
+          <ion-icon name="lock-closed-outline" id="showPassword"></ion-icon>
+          <input type="password" id="yourPassword" required>
+          <label for="">密碼</label>
+        </div>
+        <div class="forget">
+          <label>
+            <input type="checkbox"> Remember me
+          </label>
+        </div>
+        
+        <button>登入</button>
+      </form>      
     </div>
   </div>
 </section>

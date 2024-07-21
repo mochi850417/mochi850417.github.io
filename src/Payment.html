@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Payment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="font/iconsmind-s/css/iconsminds.css" />
+    <link rel="stylesheet" href="font/simple-line-icons/css/simple-line-icons.css" />
+
+    <link rel="stylesheet" href="css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/vendor/bootstrap.rtl.only.min.css" />
+    <link rel="stylesheet" href="css/vendor/fullcalendar.min.css" />
+    <link rel="stylesheet" href="css/vendor/dataTables.bootstrap4.min.css" />
+    <link rel="stylesheet" href="css/vendor/datatables.responsive.bootstrap4.min.css" />
+    <link rel="stylesheet" href="css/vendor/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="css/vendor/bootstrap-stars.css" />
+    <link rel="stylesheet" href="css/vendor/nouislider.min.css" />
+    <link rel="stylesheet" href="css/vendor/bootstrap-datepicker3.min.css" />
+    <link rel="stylesheet" href="css/vendor/component-custom-switch.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    
+
+</head>
+
+<body id="app-container" class="menu-hidden show-spinner">
+    
+    <main>
+        <div class="container-fluid">
+            <div class="row  ">
+                <div class="col-12">
+                    <h1>Payment</h1>
+                    <div class="separator mb-5"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="card col-md-12 mb-12">
+                    <div class="card-body">
+                        <form id="rulesForm" class="tooltip-label-right" novalidate>
+                            <div class="form-group position-relative error-l-125">
+                                <label>Product</label>
+                                <select id="product"></select>
+                            </div>
+                            <div>
+                                <form>
+                                    <input type="radio" name="donation" value="1" > 捐贈
+                                    <input type="radio" name="donation" value="0" > 不捐贈
+                                    <br>
+                                    <input type="radio" name="donation" value="0"> 統編
+                                    <input type="text" id="taxID">
+                                    地址
+                                    <input type="text" id="customerAddr">
+                                    <br>
+                                    購買數量
+                                    <input type="number" min="1" max="9"  id="quantity">
+                          
+                                </form>
+                            </div>
+                            <div> 
+                                <input type="checkbox" id="quota"> 定期定額
+                            </div>
+                                      <br>
+                            <button type="button" class="btn btn-primary mb-0" onclick="userPayment()">Submit</button>
+                        </form>
+                        <div id="result"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <table id="orderTable" class="table">
+        <th id="controller">
+
+        </th>
+    </table>
+
+    <footer class="page-footer">
+        <div class="footer-content" style="display:none">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 col-sm-6">
+                        <p class="mb-0 text-muted">ColoredStrategies 2020</p>
+                    </div>
+                    <div class="col-sm-6 d-none d-sm-block">
+                        <ul class="breadcrumb pt-0 pr-0 float-right">
+                            <li class="breadcrumb-item mb-0">
+                                <a href="#" class="btn-link">Review</a>
+                            </li>
+                            <li class="breadcrumb-item mb-0">
+                                <a href="#" class="btn-link">Purchase</a>
+                            </li>
+                            <li class="breadcrumb-item mb-0">
+                                <a href="#" class="btn-link">Docs</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="js/vendor/getme.js" defer></script>
+    <script src="js/vendor/jquery-3.3.1.min.js"></script>
+    <script src="js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="js/vendor/Chart.bundle.min.js"></script>
+    <script src="js/vendor/chartjs-plugin-datalabels.js"></script>
+    <script src="js/vendor/moment.min.js"></script>
+    <script src="js/vendor/fullcalendar.min.js"></script>
+    <script src="js/vendor/datatables.min.js"></script>
+    <script src="js/vendor/perfect-scrollbar.min.js"></script>
+    <script src="js/vendor/progressbar.min.js"></script>
+    <script src="js/vendor/jquery.barrating.min.js"></script>
+    <script src="js/vendor/nouislider.min.js"></script>
+    <script src="js/vendor/bootstrap-datepicker.js"></script>
+    <script src="js/vendor/Sortable.js"></script>
+    <script src="js/vendor/mousetrap.min.js"></script>
+    <script src="js/dore.script.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/vendor/payment.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</body>
+
+</html>

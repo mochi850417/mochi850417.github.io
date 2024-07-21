@@ -1,0 +1,475 @@
+html {
+  width: 100%;
+}
+
+body {
+  overflow-x: hidden !important;
+}
+
+body.show-spinner>main {
+  overflow: hidden !important;
+}
+.navbarheader{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar-right{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.alertMsg{
+  position: absolute;
+  top:100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+/*Avatar Setting*/
+.avatar{
+  cursor: pointer;
+}
+.picture_css{
+  display: flex;
+  justify-content: center;}
+.uploading{
+  position: absolute;
+  top: 70%;
+}
+.progressbar{
+  width: 16rem;
+  height: 10px;
+  background: #FFF;
+  border-radius: 13px;
+}
+.progress{
+  width: 0px;
+  height: 10px;
+  background: rgb(44, 128, 255);
+  border-radius: 13px;
+}
+
+.progress_blink{
+  animation: blink .7s ease-in-out 1s;
+}
+@keyframes blink{
+  0%{
+    opacity: 1;
+  }
+  50%{
+    opacity: .2;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+
+.lang-menu{
+  position: relative;
+  min-width: 6rem;
+}
+.lang-menu ul{
+  text-align: start;
+  margin: 0;
+  padding: 0;
+  background-color: #FFF;
+  border: 1px solid #f8f8f8;
+  box-shadow: 0 1px 10px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  display: none;
+  position: absolute;
+}
+.lang-menu:hover ul{
+  display: block;
+}
+.lang-menu ul li{
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+
+}
+.lang-menu ul li a:before{
+  content: '';
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.lang-menu ul li a{
+  width: 8rem;
+  display: block;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.lang-menu ul li a:hover{
+  background-color: #f2f2f2;
+}
+.us:before{
+  background-image: url(https://www.countryflags.io/us/flat/32.png);
+}
+.tw:before{
+  background-image: url(https://www.countryflags.io/tw/flat/32.png);
+}
+.selected-lang{
+  margin-right: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.selected-lang:before{
+  content: '';
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  background-image: url(https://www.countryflags.io/us/flat/32.png);
+}
+
+#mainUserDetail{
+  display: none;
+}
+#control::after{
+  content: "";
+  background:#236591;
+  color:#1e2022;
+  border-radius: 10px;
+  position: absolute;
+  width: 6px;
+  height: 90px;
+  top: 20%;
+  transform: translateY(-50%);
+  left: 0;
+  transition: .5s;
+}
+.disabled{
+  pointer-events: none;
+}
+.readOnly{
+  opacity: .7 !important;
+}
+.textsetting{
+  color: rgb(27, 212, 212);
+  font-weight: 900;
+  font-size: 1rem;
+}
+.underline{
+  border-top: 1px solid #000;
+}
+.payLine{
+  margin-top: 5%;
+  border-top: 1px solid rgb(204, 204, 204);
+}
+.payLine p{
+  margin: 5% 0 2% 5%;
+}
+.contentBox{
+  transition: .5s;
+  cursor: pointer;
+}
+.contentBox > .content{
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  transition: 0.5s;
+  overflow-y: auto;
+}
+.contentBox:hover{
+  color: darkgrey;
+}
+.contentBox.active{
+  color: #000;
+  border: 1px dotted #000;
+  border-radius: 1px;
+}
+.contentBox.active > .content{
+  height: 90px;
+  padding-left: 1rem;
+
+}
+.datepickerwrap{
+  margin: 1rem 0;
+  padding-right: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
+.datepickerwrap p{
+  margin: 3px 1.2rem 0 1rem  ;
+}
+.period{
+  width: 100%;
+  margin: 0 0 1rem 13px;
+}
+.period p{
+  font-size: 1.2rem;
+}
+.btn-filter{
+  height: 26px;
+  line-height: 10px;
+  margin: 0 0.2rem;
+}
+.btn-wrap{
+  margin: 0.3rem 0 0 0;
+}
+.modal-body{
+  border-top: 1px solid darkgrey;
+}
+.detailTitle p{
+  font-size: 1.5rem;
+}
+.modal-pay-header .detailTitle p{
+  margin: 5% 0 0 5%;
+}
+.modal-pay-body{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-content{
+  min-height: 50vh;
+}
+.modal-footer{
+  display: flex;
+  justify-content: center;
+}
+.modal-footer .modal-detail-foot{
+  justify-content: center;
+}
+.listPrice{
+  text-decoration:line-through
+}
+.salePrice span{
+  font-size: 3rem;
+  color: #f57337;
+}
+.btn-position{
+ display: none; 
+}
+.product-block{
+  height: 27rem;
+  width: 18.75rem;
+  background-color: #FFF;
+  box-shadow: 5px 6px 7px 8px #ebebeb;
+  border-radius: 25px 25px 25px 25px;
+  margin-left: 1%;
+  overflow: hidden;
+}
+.product-line{
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 7%;
+  background-color: #42414e;
+  opacity: .2;
+  border-radius: 3px;
+  height: 3px;
+
+}
+.product-block .imgBlock{
+  margin: 2rem 0 0 2.5rem;
+}
+.product-block .imgBlock img{
+  width: 220px;
+  height: 180px;
+}
+.product-block h2{
+  text-align: center;
+  margin-top: 0;
+}
+.product-block p{
+  text-align: right;
+  margin-right: 20px;
+  font-size: 1rem;
+}
+.closeBtn{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.button-hover{
+  position: relative;
+  min-width: 230px;
+  margin-left: 12%;
+  margin-top: 5%;
+  padding:.3em;
+  background: linear-gradient(to right, #f57337, #89f50d);
+  cursor: pointer;
+  border-radius: 20px;
+}
+.button-hover::before,
+.button-hover::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to right, #f57337, #89f50d);
+  border-radius: 20px;
+  transition: all .5s ease-in-out;
+}
+
+.button-hover:hover::before{
+  filter: blur(5px);
+}
+.button-hover:hover::after{
+  filter: blur(15px);
+}
+.button-hover span{
+  font-size: 1.3rem;
+  position: relative;
+  z-index: 3;
+  display: block;
+  font-weight: bold;
+  color: #000;
+  background-color: #e2e2e2;
+  border-radius: 17px;
+}
+.button-hover:hover{
+  animation: hue 3s linear infinite;
+}
+@keyframes hue{
+  0%{
+      filter: hue-rotate(0deg);
+  }
+  100%{
+      filter: hue-rotate(360deg);
+  }
+}
+.table{
+  width: 80%;
+  margin: .8rem auto;
+}
+.table tr{
+  display: flex;
+  justify-content: space-between;
+}
+.table thead tr th{
+  width: 50%;
+}
+.table-foot{
+  margin-right: 3rem;
+}
+.line{
+  margin: 0 auto;
+  background: rgb(197, 197, 197);
+  width: 90%;
+  height: 1px;
+}
+.right_col{
+  text-align: end;
+}
+.modal-detail-foot{
+  width: 35%;
+  display: flex;
+  align-self: flex-end;
+}
+.page-link{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*DatePicker*/
+.datePicker{
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+.datePicker .input-group-addon{
+  margin: 0 1rem;
+}
+.datePicker .clearBtn{
+  margin-left: 1rem;
+}
+.noContent{
+  width: 100%;
+  margin-left: 1rem;
+}
+.noContent h1{
+  font-size: 2.5rem;
+}
+
+.notActivate{
+  pointer-events: none;
+  opacity: .5;
+}
+
+/* Hide everything under body tag */
+body.show-spinner>* {
+  opacity: 0;
+}
+
+/* Spinner */
+body.show-spinner::after {
+  content: " ";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  border-top-color: rgba(0, 0, 0, 0.3);
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+  left: calc(50% - 15px);
+  top: calc(50% - 15px);
+  position: fixed;
+  z-index: 1;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+.rwd{
+  display:none;
+}
+@media screen and (max-width: 600px){
+  .rwd{
+    display: block;
+  }
+  .list-unstyled li a{
+    height: 50px !important;
+  }
+  .list-unstyled li a i{
+    display: none;
+  }
+  .menu .main-menu ul li.active:after{
+    height: 50px;
+  }
+  .btn-position{
+  display: block;
+  margin-bottom: 2%;
+}
+#app-container.main-show-temporary .main-menu{
+  width: 30%;
+}
+.datePicker{
+  padding: 0 1rem;
+  z-index: 0;
+}
+.textRwd{
+  width: 100% !important;
+}
+.datePicker input{
+  width: 80% !important;
+}
+.datePicker .clearBtn{
+  width: 92%;
+  margin-top: 1rem;
+}
+}

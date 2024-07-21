@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>STORM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="font/iconsmind-s/css/iconsminds.css" />
+    <link rel="stylesheet" href="font/simple-line-icons/css/simple-line-icons.css" />
+
+    <link rel="stylesheet" href="css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/vendor/bootstrap.rtl.only.min.css" />
+    <link rel="stylesheet" href="css/vendor/component-custom-switch.min.css" />
+    <link rel="stylesheet" href="css/vendor/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="../src/css/vendor/dropzone/basic.css" />
+    <link rel="stylesheet" href="../src/css/vendor/dropzone/dropzone.css" />
+</head>
+
+<body id="app-container" class="menu-default show-spinner">
+    <nav class="navbar fixed-top">
+        <div class="d-flex align-items-center navbar-left">
+            <a href="#" class="menu-button d-none d-md-block">
+                <svg class="main" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 17">
+                    <rect x="0.48" y="0.5" width="7" height="1" />
+                    <rect x="0.48" y="7.5" width="7" height="1" />
+                    <rect x="0.48" y="15.5" width="7" height="1" />
+                </svg>
+                <svg class="sub" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 17">
+                    <rect x="1.56" y="0.5" width="16" height="1" />
+                    <rect x="1.56" y="7.5" width="16" height="1" />
+                    <rect x="1.56" y="15.5" width="16" height="1" />
+                </svg>
+            </a>
+
+            <a href="#" class="menu-button-mobile d-xs-block d-sm-block d-md-none">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 17">
+                    <rect x="0.5" y="0.5" width="25" height="1" />
+                    <rect x="0.5" y="7.5" width="25" height="1" />
+                    <rect x="0.5" y="15.5" width="25" height="1" />
+                </svg>
+            </a>
+            <div class="AuthorizationCenter"></div>
+        </div>
+
+        <div id="alertMsg" class="alertMsg"></div>
+        <a class="navbar-logo" href="Account.html">
+            <span class="logo d-none d-xs-block"></span>
+            <span class="logo-mobile d-block d-xs-none"></span>
+        </a>
+
+
+        <div class="navbar-right">
+            <div class="header-icons d-inline-block align-middle">
+                <div class="d-none d-md-inline-block align-text-bottom mr-3">
+                    <div class="custom-switch custom-switch-primary-inverse custom-switch-small pl-1" data-toggle="tooltip" data-placement="left" title="Dark Mode">
+                        <input class="custom-switch-input" id="switchDark" type="checkbox" checked>
+                        <label class="custom-switch-btn" for="switchDark"></label>
+                    </div>
+                </div>
+            </div>
+        <div class="lang-menu d-inline-block">
+            <style id="fakecss-selected"></style>
+            <div id="selected-lang" class="selected-lang">English</div>
+            <ul>
+                <li>
+                    <a id="us" class="us">English</a>
+                </li>
+                 <li>
+                    <a id="tw" class="tw">中文</a>
+                </li>
+            </ul>
+        </div>
+            <div class="user d-inline-block">
+                <button class="btn btn-empty p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="name" id="userEmail"></span>
+                </button>
+                <span id="profilePicture" class="avatar" data-toggle="modal" onclick="removeBlink()"></span>
+
+                <div class="dropdown-menu dropdown-menu-right mt-3">
+                    <a class="dropdown-item" href="#"><span data-i18n="account">Account</span></a>
+                    <a class="dropdown-item" href="sg/Messages.html" data-toggle="modal" data-target="#loginRecord"><span data-i18n="login_record" onclick="loginRecord()">Login Record</span></a>
+                    <a class="dropdown-item" href="#" onclick="userLogout()"><span data-i18n="signout">Sign out</span></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="modal fade" id="loginRecord" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                
+                <div class="modal-header" id="modal-header">
+                <div class="detailTitle"><p data-i18n="login_record">Login Record</p></div>
+                <div><input class="form-control mr-sm-2 inputwidth" type="search" data-i18n="search_ip" placeholder="Search Name" aria-label="Search" id="searchbar" oninput="loginRecord()"></div>
+                </div>
+                    
+                <div class="modal-detail-body" id="modal-detail-body"></div>
+                
+               
+                <div class="modal-footer">
+                    <div class="modal-detail-foot" id="modal-detail-foot"></div>
+                </div>
+                <button type="button" class="btn btn-secondary btn-position" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu">
+        <div class="main-menu">
+            <div class="scroll">
+                <ul class="list-unstyled">
+                    <li class="notActivate">
+                        <a href="Account.html">
+                            <i class="simple-icon-handbag"></i> <p data-i18n="account">Account</p>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="userVerify.html">
+                            <i class="simple-icon-diamond"></i> <p data-i18n="verification">Verification</p>
+                        </a>
+                    </li>
+                    <li class="notActivate">
+                        <a href="Order.html">
+                            <i class="simple-icon-screen-tablet"></i> <p data-i18n="order_history">Order History</p>
+                        </a>
+                    </li>
+                    <li class="notActivate">
+                        <a href="Purchase.html">
+                            <i class="iconsminds-dollar-sign-2"></i> <p data-i18n="purchase_renew">Purchase/Renew</p>
+                        </a>
+                    </li>
+                    <li class="rwd">
+                        <a href="#" data-toggle="modal" data-target="#loginRecord"><p data-i18n="login_record" onclick="loginRecord()">Login Record</p>
+                        </a>
+                    </li>
+                     <li class="rwd">
+                        <a href="#"  onclick="userLogout()"> <p data-i18n="signout">Sign out</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="loginRecord" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                
+                <div class="modal-header" id="modal-header">
+                <div class="detailTitle"><p data-i18n="login_record">Login Record</p></div>
+                <div><input class="form-control mr-sm-2 inputwidth" type="search" data-i18n="search_ip" placeholder="Search Name" aria-label="Search" id="searchbar" oninput="loginRecord()"></div>
+                </div>
+                    
+                <div class="modal-detail-body" id="modal-detail-body"></div>
+                
+               
+                <div class="modal-footer">
+                    <div class="modal-detail-foot" id="modal-detail-foot"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <div id="verifyAlert" class="alert alert-warning alert-dismissible " role="alert">
+            <h1 class="alert-heading" data-i18n="well_done">Well done!</h1>
+            <p data-i18n="next_you_need">Next, you need to verify email and cellphone to gain user access roles to other pages. </p>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <h1 data-i18n="verification">Verification</h1>
+
+                    <div class="separator mb-5"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-lg-6 mb-4" id="smsCertified">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title" data-i18n="phone_verify">Phone Verify</h2>
+                            <label for="InputPhoneNumber" data-i18n="enter_phone_number">Enter phone number</label>
+                            <div class="input-group mb-4">
+                                <input type="text" class="form-control col-2" id="phoneCountryCode" placeholder="886" maxlength="4">
+                                <input type="text" class="form-control col-10" id="phoneNumber" placeholder="9 12345678" maxlength="9">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary btn-multiple-state" type="button" onclick="sendSmsVerify()" id="sendID" data-i18n="send">Send</button>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Phone Verify" id="smsCode" data-i18n="phone_verify_code">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary btn-multiple-state" type="button" onclick="checkSmsVerify()" id="checkSmsVerifyButton" data-i18n="phone_verify">Phone Verify</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+         
+                <div class="col-md-12 col-lg-6 mb-4" id="emailCertified">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title" data-i18n="email_verify">Email Verify</h2>
+                            <label for="InputPhoneNumber" data-i18n="enter_email_verify">Enter Email Verify</label>
+                            <div class="input-group" id="input-group">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel" data-i18n="change_your_avatar">Change Your Avatar</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <section>
+                                <div id="dropzone">
+                                    <form class="dropzone needsclick picture_css" id="myAwesomeDropzone" action="/upload">
+                                       <div class="dz-message" data-dz-message><span data-i18n="drop_file">Drop files here or click to upload.</span><br><br>
+                                    <span data-i18n="maximum_file">Maximum File Size 2MB</span></div>
+                                        <div class="uploading">
+                                            <div class="progressbar">
+                                                <div class="progress"></div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </section>
+                            <div class="dz-preview dz-file-preview">
+                                <div class="dz-image"><img data-dz-thumbnail=""></div>
+                                <div class="dz-details">
+                                    <div class="dz-size"><span data-dz-size=""></span></div>
+                                    <div class="dz-filename"><span data-dz-name=""></span></div>
+                                </div>
+                                <div class="dz-progress"><span class="dz-upload" 
+                                    data-dz-uploadprogress=""></span>
+                                </div>
+                                <div class="dz-error-message"><span data-dz-errormessage=""></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>     
+    </main>
+
+    <footer class="page-footer">
+        <div class="footer-content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 col-sm-6">
+                        <p class="mb-0 text-muted">STORM@ 2020</p>
+                    </div>
+<!--
+                    <div class="col-sm-6 d-none d-sm-block">
+                        <ul class="breadcrumb pt-0 pr-0 float-right">
+                            <li class="breadcrumb-item mb-0">
+                                <a href="../how-to-install.html" class="btn-link" target="_blank">How to install</a>
+                            </li>
+                            <li class="breadcrumb-item mb-0">
+                                <a href="../terms-and-privacy.html" class="btn-link" target="_blank">Terms of use</a>
+                            </li>
+                            <li class="breadcrumb-item mb-0">
+                                <a href="../terms-and-privacy.html" class="btn-link" target="_blank">Privacy Policy</a>
+                            </li>
+                            <li class="breadcrumb-item mb-0">
+                                <a href="../terms-and-privacy.html" class="btn-link" target="_blank">Cookie Policy</a>
+                            </li>
+                        </ul>
+                    </div>
+-->
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="js/vendor/jquery-3.3.1.min.js"></script>
+    <script src="js/vendor/uploadAvatar.js"></script>
+    <script src="js/vendor/dropzone/dropzone.js"></script>
+    <script src="js/vendor/avatarParameter.js"></script>
+    <script src="js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="js/vendor/perfect-scrollbar.min.js"></script>
+    <script src="js/vendor/language/i18n.js"></script>
+    <script src="js/vendor/mousetrap.min.js"></script>
+    <script src="js/dore.script.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js"></script>
+        <script src="js/vendor/getme.js" defer></script>
+    <script src="js/vendor/userVerify.js"></script>
+    <script src="js/vendor/loginRecord.js"></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</body></html>

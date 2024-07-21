@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>STORM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="../font/iconsmind-s/css/iconsminds.css" />
+    <link rel="stylesheet" href="../font/simple-line-icons/css/simple-line-icons.css" />
+    <link rel="stylesheet" href="../css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/vendor/bootstrap.rtl.only.min.css" />
+    <link rel="stylesheet" href="../css/vendor/bootstrap-datepicker3.min.css" />
+    <link rel="stylesheet" href="../css/vendor/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="../css/vendor/jquery.contextMenu.min.css" />
+    <link rel="stylesheet" href="../css/vendor/component-custom-switch.min.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+</head>
+
+<body id="app-container" class="menu-default show-spinner vertical boxed">
+    <nav class="navbar fixed-top">
+        <div class="d-flex align-items-center navbar-left">
+            <a href="#" class="menu-button d-none d-md-block">
+                <svg class="main" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 17">
+                    <rect x="0.48" y="0.5" width="7" height="1" />
+                    <rect x="0.48" y="7.5" width="7" height="1" />
+                    <rect x="0.48" y="15.5" width="7" height="1" />
+                </svg>
+                <svg class="sub" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 17">
+                    <rect x="1.56" y="0.5" width="16" height="1" />
+                    <rect x="1.56" y="7.5" width="16" height="1" />
+                    <rect x="1.56" y="15.5" width="16" height="1" />
+                </svg>
+            </a>
+
+            <a href="#" class="menu-button-mobile d-xs-block d-sm-block d-md-none">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 17">
+                    <rect x="0.5" y="0.5" width="25" height="1" />
+                    <rect x="0.5" y="7.5" width="25" height="1" />
+                    <rect x="0.5" y="15.5" width="25" height="1" />
+                </svg>
+            </a>
+            <div class="AuthorizationCenter"></div>
+        </div>
+
+
+        <a class="navbar-logo" href="../../index.html" target="_blank">
+            <span class="logo d-none d-xs-block"></span>
+            <span class="logo-mobile d-block d-xs-none"></span>
+        </a>
+
+        <div class="navbar-right">
+            <div class="header-icons d-inline-block align-middle">
+                <div class="d-none d-md-inline-block align-text-bottom mr-3">
+                    <div class="custom-switch custom-switch-primary-inverse custom-switch-small pl-1" data-toggle="tooltip" data-placement="left" title="Dark Mode">
+                        <input class="custom-switch-input" id="switchDark" type="checkbox" checked>
+                        <label class="custom-switch-btn" for="switchDark"></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="user d-inline-block">
+                <button class="btn btn-empty p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="name" id="userEmail"></span>
+                    <span id="profilePicture"></span>
+                </button>
+
+                <div class="dropdown-menu dropdown-menu-right mt-3">
+                    <a class="dropdown-item" href="../Account.html">Account</a>
+                    <a class="dropdown-item" href="../sg/Messages.html">Storm Game</a>
+                    <a class="dropdown-item" href="#" onclick="userLogout()">Sign out</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="menu">
+        <div class="main-menu">
+            <div class="scroll">
+                <ul class="list-unstyled">
+                    <li class="">
+                        <a href="Messages.html">
+                            <i class="simple-icon-speech"></i> Messages
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="Order.html">
+                            <i class="simple-icon-screen-tablet"></i> Order History
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="Purchase.html">
+                            <i class="iconsminds-dollar-sign-2"></i> Purchase/Renew
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="Download.html">
+                            <i class="iconsminds-data-download"></i> Download
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <div class="container-fluid disable-text-selection">
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-2">
+                        <h1>Order History</h1>
+                    </div>
+
+                    <div class="mb-2">
+                        <a class="btn pt-0 pl-0 d-inline-block d-md-none" data-toggle="collapse" href="#displayOptions" role="button" aria-expanded="true" aria-controls="displayOptions">
+                            Display Options
+                            <i class="simple-icon-arrow-down align-middle"></i>
+                        </a>
+                        <div class="collapse dont-collapse-sm" id="displayOptions">
+
+                            <div class="d-block d-md-inline-block">
+                                <div class="btn-group float-md-left mr-1 mb-1">
+                                    <button class="btn btn-outline-dark btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Order By
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                    </div>
+                                </div>
+                                <div class="search-sm calendar-sm d-inline-block float-md-left mr-1 mb-1 align-top">
+                                    <input class="form-control datepicker" placeholder="Search by day">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="separator mb-5"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 list" data-check-all="checkAll">
+                    <div id="orderlist"></div>
+<!--
+                    <nav class="mt-4 mb-3">
+                    <ul class="pagination justify-content-center mb-0" id="dataHtml"></ul></nav>
+-->
+                    <nav class="mt-4 mb-3" id="orderControl">
+
+                    </nav>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="page-footer">
+        <div class="footer-content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 col-sm-6">
+                        <p class="mb-0 text-muted">STORM@ 2020</p>
+                    </div>
+<!--
+                    <div class="col-sm-6 d-none d-sm-block">
+                        <ul class="breadcrumb pt-0 pr-0 float-right">
+                            <li class="breadcrumb-item mb-0">
+                                <a href="../../how-to-install.html" class="btn-link" target="_blank">How to install</a>
+                            </li>
+                            <li class="breadcrumb-item mb-0">
+                                <a href="../../terms-and-privacy.html" class="btn-link" target="_blank">Terms of use</a>
+                            </li>
+                            <li class="breadcrumb-item mb-0">
+                                <a href="../../terms-and-privacy.html" class="btn-link" target="_blank">Privacy Policy</a>
+                            </li>
+                            <li class="breadcrumb-item mb-0">
+                                <a href="../../terms-and-privacy.html" class="btn-link" target="_blank">Cookie Policy</a>
+                            </li>
+                        </ul>
+                    </div>
+-->
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/vendor/jquery-3.3.1.min.js"></script>
+    <script src="../js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="../js/vendor/perfect-scrollbar.min.js"></script>
+    <script src="../js/vendor/mousetrap.min.js"></script>
+    <script src="../js/vendor/jquery.contextMenu.min.js"></script>
+    <script src="../js/vendor/bootstrap-datepicker.js"></script>
+    <script src="../js/dore.script.js"></script>
+    <script src="../js/scripts.js"></script>
+    <script src="../js/vendor/getme.js" defer></script>
+    <script src="../js/vendor/accountNavigation.js" defer></script>
+    <script src="../js/vendor/orderSRList.js" defer></script>
+    <script src="../js/vendor/moment.min.js"></script>
+    <script src="../js/vendor/jquery-pagination.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+</body>
+
+</html>

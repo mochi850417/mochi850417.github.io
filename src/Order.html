@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>STORM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="font/iconsmind-s/css/iconsminds.css" />
+    <link rel="stylesheet" href="font/simple-line-icons/css/simple-line-icons.css" />
+    <link rel="stylesheet" href="css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/vendor/bootstrap.rtl.only.min.css" />
+    <link rel="stylesheet" href="css/vendor/bootstrap-datepicker3.min.css" />
+    <link rel="stylesheet" href="css/vendor/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="css/vendor/jquery.contextMenu.min.css" />
+    <link rel="stylesheet" href="css/vendor/component-custom-switch.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+     <link rel="stylesheet" href="../src/css/vendor/dropzone/basic.css" />
+    <link rel="stylesheet" href="../src/css/vendor/dropzone/dropzone.css" />
+</head>
+
+<body id="app-container" class="menu-default show-spinner vertical boxed">
+    <nav class="navbar fixed-top">
+        <div class="d-flex align-items-center navbar-left">
+            <a href="#" class="menu-button d-none d-md-block">
+                <svg class="main" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 17">
+                    <rect x="0.48" y="0.5" width="7" height="1" />
+                    <rect x="0.48" y="7.5" width="7" height="1" />
+                    <rect x="0.48" y="15.5" width="7" height="1" />
+                </svg>
+                <svg class="sub" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 17">
+                    <rect x="1.56" y="0.5" width="16" height="1" />
+                    <rect x="1.56" y="7.5" width="16" height="1" />
+                    <rect x="1.56" y="15.5" width="16" height="1" />
+                </svg>
+            </a>
+
+            <a href="#" class="menu-button-mobile d-xs-block d-sm-block d-md-none">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 17">
+                    <rect x="0.5" y="0.5" width="25" height="1" />
+                    <rect x="0.5" y="7.5" width="25" height="1" />
+                    <rect x="0.5" y="15.5" width="25" height="1" />
+                </svg>
+            </a>
+        </div>
+
+
+        <a class="navbar-logo" href="../index.html" target="_blank">
+            <span class="logo d-none d-xs-block"></span>
+            <span class="logo-mobile d-block d-xs-none"></span>
+        </a>
+
+        <div class="navbar-right">
+            <div class="header-icons d-inline-block align-middle">
+                <div class="d-none d-md-inline-block align-text-bottom mr-3">
+                    <div class="custom-switch custom-switch-primary-inverse custom-switch-small pl-1" data-toggle="tooltip" data-placement="left" title="Dark Mode">
+                        <input class="custom-switch-input" id="switchDark" type="checkbox" checked>
+                        <label class="custom-switch-btn" for="switchDark"></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lang-menu d-inline-block">
+                <style id="fakecss-selected"></style>
+                <div id="selected-lang" class="selected-lang">English</div>
+                <ul>
+                    <li>
+                        <a id="us" class="us">English</a>
+                    </li>
+                     <li>
+                        <a id="tw" class="tw">中文</a>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="user d-inline-block">
+                <button class="btn btn-empty p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="name" id="userEmail"></span>
+                </button>
+                <span id="profilePicture" class="avatar" data-toggle="modal" data-target="#exampleModal" onclick="removeBlink()"></span>
+
+                <div class="dropdown-menu dropdown-menu-right mt-3">
+                    <a class="dropdown-item" href="#"><span data-i18n="account">Account</span></a>
+                    <a class="dropdown-item" href="sg/Messages.html" data-toggle="modal" data-target="#loginRecord"><span data-i18n="login_record" onclick="loginRecord()">Login Record</span></a>
+                    <a class="dropdown-item" href="#" onclick="userLogout()"><span data-i18n="signout">Sign out</span></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="modal fade" id="loginRecord" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                
+                <div class="modal-header" id="modal-header">
+                <div class="detailTitle"><p data-i18n="login_record">Login Record</p></div>
+                <div><input class="form-control mr-sm-2 inputwidth" type="search" data-i18n="search_ip" placeholder="Search Name" aria-label="Search" id="searchbar" oninput="loginRecord()"></div>
+                </div>
+                    
+                <div class="modal-detail-body" id="modal-detail-body"></div>
+                
+               
+                <div class="modal-footer">
+                    <div class="modal-detail-foot" id="modal-detail-foot"></div>
+                </div>
+                <button type="button" class="btn btn-secondary btn-position" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+    <div class="menu">
+        <div class="main-menu">
+            <div class="scroll">
+                <ul class="list-unstyled">
+                    <li class="">
+                        <a href="Account.html">
+                            <i class="simple-icon-handbag"></i> <p data-i18n="account">Account</p>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="userVerify.html">
+                            <i class="simple-icon-diamond"></i> <p data-i18n="verification">Verification</p>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="Order.html">
+                            <i class="simple-icon-screen-tablet"></i> <p data-i18n="order_history">Order History</p>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="Purchase.html">
+                            <i class="iconsminds-dollar-sign-2"></i> <p data-i18n="purchase_renew">Purchase/Renew</p>
+                        </a>
+                    </li>
+                    <li class="rwd">
+                        <a href="#" data-toggle="modal" data-target="#loginRecord"><p data-i18n="login_record" onclick="loginRecord()">Login Record</p>
+                        </a>
+                    </li>
+                     <li class="rwd">
+                        <a href="#"  onclick="userLogout()"> <p data-i18n="signout">Sign out</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <div class="container-fluid disable-text-selection">
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-2">
+                        <h1 data-i18n="order_history">Order History</h1>
+                    </div>
+
+                    <!-- <div class="mb-2">   排序功能 暫時隱藏
+                        <a class="btn pt-0 pl-0 d-inline-block d-md-none" data-toggle="collapse" href="#displayOptions" role="button" aria-expanded="true" aria-controls="displayOptions">
+                            Display Options
+                            <i class="simple-icon-arrow-down align-middle"></i>
+                        </a>
+                        <div class="collapse dont-collapse-sm" id="displayOptions">
+
+                            <div class="d-block d-md-inline-block">
+                                <div class="btn-group float-md-left mr-1 mb-1">
+                                    <button class="btn btn-outline-dark btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-i18n="order_by">
+                                        Order By
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                    </div>
+                                </div>
+                                <div class="search-sm calendar-sm d-inline-block float-md-left mr-1 mb-1 align-top">
+                                    <input class="form-control datepicker" data-i18n="search_by_day" placeholder="Search by day">
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="separator mb-5"></div>
+                </div>
+            </div>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel" data-i18n="change_your_avatar">Change Your Avatar</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <section>
+                                <div id="dropzone">
+                                    <form class="dropzone needsclick picture_css" id="myAwesomeDropzone" action="/upload">
+                                       <div class="dz-message" data-dz-message><span data-i18n="drop_file">Drop files here or click to upload.</span><br><br>
+                                    <span data-i18n="maximum_file">Maximum File Size 2MB</span></div>
+                                        <div class="uploading">
+                                            <div class="progressbar">
+                                                <div class="progress"></div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </section>
+                            <div class="dz-preview dz-file-preview">
+                                <div class="dz-image"><img data-dz-thumbnail=""></div>
+                                <div class="dz-details">
+                                    <div class="dz-size"><span data-dz-size=""></span></div>
+                                    <div class="dz-filename"><span data-dz-name=""></span></div>
+                                </div>
+                                <div class="dz-progress"><span class="dz-upload" 
+                                    data-dz-uploadprogress=""></span>
+                                </div>
+                                <div class="dz-error-message"><span data-dz-errormessage=""></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="datePicker">
+                    <div class="input-group input-daterange">
+                        <div class="input-group-addon textRwd" data-i18n="search_end_from">From</div>
+                        <input type="text" id="fromDate" class="form-control" data-i18n="select_from_date" placeholder="Select Date" onchange="focusCalendar(this,'toDate')">
+                        <div class="input-group-addon textRwd" data-i18n="to">to</div>
+                        <input type="text" id="toDate" class="form-control" data-i18n="select_end_date" placeholder="Select Date" onchange="fitlerData()">
+                        <button type="button" class="btn btn-secondary clearBtn" data-i18n="clear_date" onclick="clearDate()">Clear Date</button>
+                    </div>
+                </div>
+                <div id="noContent" class="noContent"></div>
+                <div id='orderlist' class="col-12">
+                </div>
+
+                <div class="modal fade" id="ModalContent" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalTitle"></h5>
+                            </div>
+                            <div class="modal-body" id="modal-body">
+                            </div>
+                            <div class="closeBtn">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="modal fade" id="ModalContent" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header" id="modal-header">
+                            <div class="detailTitle"><p data-i18n="order_info">Order Info</p></div>
+                            </div>
+                                
+                            <div class="modal-detail-body" id="modal-detail-body"></div>
+                            <div class="line"></div>
+                            <div class="modal-detail-foot" id="modal-detail-foot"></div>
+                           
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal"><span data-i18n="close">Close</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+
+            <!-- <div class="row">
+                <div class="col-12 list" data-check-all="checkAll">
+                    <div id="" class="card d-flex flex-row mb-3">
+                        <div class="d-flex flex-grow-1 min-width-zero">
+                            <div class="card-body align-self-center d-flex flex-column flex-md-row justify-content-between min-width-zero align-items-md-center">
+                                <p class="mb-0 truncate w-15 w-xs-100 textsetting" data-i18n="id">ID</p>
+                                       <p class="mb-0 truncate w-20 w-xs-100 textsetting" data-i18n="product_name">Product Name</p>
+                                            <p class="mb-0 truncate w-15 w-xs-100 textsetting" data-i18n="purchase_date">Purchase Date</p>
+                                <p class="mb-0 truncate w-15 w-xs-100 textsetting" data-i18n="expire">Date</p>
+                                <p class="mb-0 truncate w-25 w-xs-100 textsetting" data-i18n="reference">Reference</p>          
+                                <p class="mb-0 truncate w-15 w-xs-100 textsetting" data-i18n="price">Price</p>
+                                <p class="mb-0 truncate w-15 w-xs-100 textsetting" data-i18n="license">Active</p>
+                                <div class="w-10 w-xs-100"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="orderlist"></div>
+                    -->
+<!--
+                    <nav class="mt-4 mb-3">
+                    <ul class="pagination justify-content-center mb-0" id="dataHtml"></ul></nav>
+-->
+                    <nav class="mt-4 mb-3" id="orderControl">
+
+                    </nav>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="page-footer">
+        <div class="footer-content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 col-sm-6">
+                        <p class="mb-0 text-muted">STORM@ 2020</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/vendor/jquery-3.3.1.min.js"></script>
+    <script src="js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="js/vendor/perfect-scrollbar.min.js"></script>
+    <script src="js/vendor/uploadAvatar.js"></script>
+    <script src="js/vendor/dropzone/dropzone.js"></script>
+    <script src="js/vendor/avatarParameter.js"></script>
+    <script src="js/vendor/language/i18n.js"></script>
+    <script src="js/vendor/mousetrap.min.js"></script>
+    <script src="js/vendor/jquery.contextMenu.min.js"></script>
+    <script src="js/vendor/bootstrap-datepicker.js"></script>
+    <script src="js/dore.script.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/vendor/getme.js" defer></script>
+    <script src="js/vendor/orderList.js" defer></script>
+    <script src="js/vendor/moment.min.js"></script>
+    <script src="js/vendor/loginRecord.js"></script>
+    <script src="js/vendor/jquery-pagination.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</body>
+
+</html>

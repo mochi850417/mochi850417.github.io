@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>STORM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="../font/iconsmind-s/css/iconsminds.css" />
+    <link rel="stylesheet" href="../font/simple-line-icons/css/simple-line-icons.css" />
+    <link rel="stylesheet" href="../css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/vendor/bootstrap.rtl.only.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="../css/vendor/bootstrap-datepicker3.min.css" />
+    <link rel="stylesheet" href="../css/vendor/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="../css/vendor/jquery.contextMenu.min.css" />
+    <link rel="stylesheet" href="../css/vendor/component-custom-switch.min.css" />
+    <link rel="stylesheet" href="../css/main.css" /> 
+</head>
+
+<body id="app-container" class="menu-default show-spinner vertical boxed">
+    <nav class="navbar fixed-top">
+        <div class="d-flex align-items-center navbar-left">
+            <a href="#" class="menu-button d-none d-md-block">
+                <svg class="main" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 17">
+                    <rect x="0.48" y="0.5" width="7" height="1" />
+                    <rect x="0.48" y="7.5" width="7" height="1" />
+                    <rect x="0.48" y="15.5" width="7" height="1" />
+                </svg>
+                <svg class="sub" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 17">
+                    <rect x="1.56" y="0.5" width="16" height="1" />
+                    <rect x="1.56" y="7.5" width="16" height="1" />
+                    <rect x="1.56" y="15.5" width="16" height="1" />
+                </svg>
+            </a>
+
+            <a href="#" class="menu-button-mobile d-xs-block d-sm-block d-md-none">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 17">
+                    <rect x="0.5" y="0.5" width="25" height="1" />
+                    <rect x="0.5" y="7.5" width="25" height="1" />
+                    <rect x="0.5" y="15.5" width="25" height="1" />
+                </svg>
+            </a>
+        </div>
+
+
+        <a class="navbar-logo" href="../../index.html" target="_blank">
+            <span class="logo d-none d-xs-block"></span>
+            <span class="logo-mobile d-block d-xs-none"></span>
+        </a>
+
+        <div class="navbar-right">
+            <div class="header-icons d-inline-block align-middle">
+                <div class="d-none d-md-inline-block align-text-bottom mr-3">
+                    <div class="custom-switch custom-switch-primary-inverse custom-switch-small pl-1" data-toggle="tooltip" data-placement="left" title="Dark Mode">
+                        <input class="custom-switch-input" id="switchDark" type="checkbox" checked>
+                        <label class="custom-switch-btn" for="switchDark"></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lang-menu d-inline-block">
+                <style id="fakecss-selected"></style>
+                <div id="selected-lang" class="selected-lang">English</div>
+                <ul>
+                    <li>
+                        <a id="us" class="us">English</a>
+                    </li>
+                     <li>
+                        <a id="tw" class="tw">中文</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="user d-inline-block">
+                <button class="btn btn-empty p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="name" id="userEmail"></span>
+                    <span>
+                        <img alt="Profile Picture" src="../img/profiles/l-1.jpg" />
+                    </span>
+                </button>
+
+                <div class="dropdown-menu dropdown-menu-right mt-3">
+                    <a class="dropdown-item" href="../Account.html"><span data-i18n="account">Account</span></a>
+                    <a class="dropdown-item" href="../sr/Messages.html"><span data-i18n="sr">Storm RPA</span></a>
+                    <a class="dropdown-item" href="../sg/Messages.html"><span data-i18n="sg">Storm Game</span></a>
+                    <a class="dropdown-item" href="#" onclick="userLogout()"><span data-i18n="signout">Sign out</span></a>
+                </div>
+            </div>
+        </div> 
+    </nav>
+    <div class="menu">
+        <div class="main-menu tablet">
+            <div class="scroll">
+                <ul class="list-unstyled">
+                    <style id="fakecss"></style>
+                    <li class="active control" id="control">
+                        <a href="#" onclick="UControl()">
+                            <i class="simple-icon-screen-tablet"></i><span data-i18n="user_control">User Control</span>
+                        </a>
+                        <a href="#" onclick="UDetail()">
+                            <i class="simple-icon-people"></i><span data-i18n="user_detail">User Detail</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <main id="mainUserControl">
+        <div class="container-fluid disable-text-selection">
+            <div class="row" id="row">
+                <div class="col-12">
+                    <div class="mb-2 navbarheader">
+                        <h1 data-i18n="user_control">User Control</h1>
+                             <div class="form-inline my-2 my-lg-0">
+                                <input class="form-control mr-sm-2 inputwidth" type="search" data-i18n="search_name" placeholder="Search Name" aria-label="Search" id="searchbar" oninput="adminUserControl()"></div>
+                            </div>
+                    <div class="separator mb-5"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 list" data-check-all="checkAll">
+                    <div class="card d-flex flex-row mb-3">
+                        <div class="d-flex flex-grow-1 min-width-zero">
+                            <div class="card-body align-self-center d-flex flex-column flex-md-row justify-content-between min-width-zero align-items-md-center">
+                                <p class="mb-0 truncate w-10 w-xs-100 textsetting" data-i18n="id">ID</p>
+                                <p class="mb-0 truncate w-20 w-xs-100 textsetting" data-i18n="name">Name</p>
+                                <p class="mb-0 truncate w-30 w-xs-100 textsetting" data-i18n="user_id">User ID</p>
+                                <p class="mb-0 truncate w-25 w-xs-100 textsetting" data-i18n="email">Email</p>
+                                <p class="mb-0 truncate w-15 w-xs-100 textsetting" data-i18n="type">Type</p>
+                                <p class="mb-0 truncate w-20 w-xs-100 textsetting" data-i18n="region">Region</p>
+                                <div class="w-10 w-xs-100"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="userlist"></div>
+                    <nav class="mt-4 mb-3" id="userlistControl">
+                    </nav>
+
+                    <div class="modal fade" id="ModalContent" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                
+                                <div class="modal-header" id="modal-header">
+                                
+                                </div>
+                                <div class="datepickerwrap" id="datepickerwrap">
+                                    <div class="period"><p data-i18n="filter_expiry_date">Filter Expiry Date :</p></div>
+                                    <p data-i18n="from">From</p> 
+                                    <div class="search-sm calendar-sm d-inline-block float-md-left mr-1 mb-1 align-top">
+                                        <input id="fromDate" class="form-control datepicker"  data-i18n="search_by_day" placeholder="Search by day">
+                                    </div>
+                                    <p data-i18n="to">To</p>
+                                    <div class="search-sm calendar-sm d-inline-block float-md-left mr-1 mb-1 align-top">
+                                        <input id="toDate" class="form-control datepicker"  data-i18n="search_by_day" placeholder="Search by day">
+                                    </div>
+                                    <div class="btn-wrap">
+                                        <button type="button" id="sendDate" class="btn btn-outline-success btn-filter"><span data-i18n="submit">submit</span></button>
+                                        <button type="button" id="cleanDate" class="btn btn-outline-danger btn-filter"><span data-i18n="clean">clean</span></button>
+                                    </div>
+                                </div>
+                                <div class="modal-body" id="modal-body">
+                                    
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal"><span data-i18n="close">Close</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <main id="mainUserDetail">
+        <div class="container-fluid disable-text-selection">
+            <div class="row" id="row">
+                <div class="col-12">
+                    <div class="mb-2 navbarheader">
+                        <h1 data-i18n="user_detail">User Detail</h1>
+                             <div class="form-inline my-2 my-lg-0">
+                                <input class="form-control mr-sm-2 inputwidth" type="search" data-i18n="search_name" placeholder="Search Name" aria-label="Search" id="searchbar" oninput="adminUserControl()"></div>
+                            </div>
+                    <div class="separator mb-5"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script src="../js/vendor/jquery-3.3.1.min.js"></script>
+    <script src="../js/vendor/language/i18n.js"></script>
+    
+    <script src="../js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="../js/vendor/perfect-scrollbar.min.js"></script>
+    <script src="../js/vendor/mousetrap.min.js"></script>
+    <script src="../js/vendor/jquery.contextMenu.min.js"></script>
+    <script src="../js/vendor/bootstrap-datepicker.js"></script>
+    <script src="../js/dore.script.js"></script>
+  
+    <script src="../js/scripts.js"></script>
+    <script src="../js/vendor/getme.js" defer></script>
+    <script src="../js/vendor/adminContol.js" defer></script>
+    <script src="../js/vendor/moment.min.js"></script>
+    <script src="../js/vendor/jquery-pagination.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+</body></html>

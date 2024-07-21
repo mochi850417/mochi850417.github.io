@@ -1,60 +1,481 @@
-<!DOCTYPE html>
-<html lang="ch-ZH">
-
+<!doctype html>
+<html prefix="og: http://ogp.me/ns#">
 <head>
-  <meta charset="UTF-8">
-  <link rel="icon" href="/favicon.ico">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta property="og:type" content="website" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="./assets/css/flags.css">
 
-  <title>建立網頁</title>
-  <style>
-    .selector-for-some-widget {
-      box-sizing: content-box;
-    }
-  </style>
+    <link href="./assets/css/style.css" rel="stylesheet">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src='./assets/js/jquery.flagstrap.js'></script>
 </head>
 
 <body>
-  <div class="no-overflow-x">
-    <div class="page-wrapper">
-      <header>
-        <nav class="m-1">
-          <ul class="nav nav-pills nav-fill gap-2 p-1 small bg-primary rounded-5 shadow-sm" id="pillNav2" role="tablist"
-            style="--bs-nav-link-color: var(--bs-white); --bs-nav-pills-link-active-color: var(--bs-primary); --bs-nav-pills-link-active-bg: var(--bs-white);">
-            <li class="nav-item" role="presentation">
-              <button class="nav-link active rounded-5" id="home-tab2" data-bs-toggle="tab" type="button" role="tab"
-                aria-selected="true"> 首頁 </button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link rounded-5" id="gallery-tab2" data-bs-toggle="tab" type="button" role="tab"
-                aria-selected="false"> 作品展示 </button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link rounded-5" id="about-tab2" data-bs-toggle="tab" type="button" role="tab"
-                aria-selected="false"> 關於我 </button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link rounded-5" id="contact-tab2" data-bs-toggle="tab" type="button" role="tab"
-                aria-selected="false"> 聯繫信息 </button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link rounded-5" id="update-tab2" data-bs-toggle="tab" type="button" role="tab"
-                aria-selected="false"> 頁面更新紀錄 </button>
-            </li>
-          </ul>
-        </nav>
-      </header>
-    </div>
-  </div>
+    <header>
+        <div class="full-container">
+            <a href="index.html" class="logo"><img src="assets/images/logo.svg" alt=""></a>
+            <div class="expend close">
+                <!-- open/close -->
+                <span></span><span></span><span></span><span></span>
+            </div>
+            <ul class="navBar">
+                <!-- <a href="index.html" class="mb">
+                    <li><img src="assets/images/logo.svg" alt=""></li>
+                </a>
+                <a href="about.html">
+                    <li data-i18n="about">ABOUT</li>
+                </a>
+                <a href="faq.html">
+                    <li data-i18n="faq">FAQ</li>
+                </a>
+                <a href="#">
+                    <li data-i18n="blog">BLOG</li>
+                </a>
+                <a href="download.html">
+                    <li data-i18n="download">DOWNLOAD</li>
+                </a> -->
+                <a href="sign_in.html">
+                    <li data-i18n="signin">SIGN IN</li>
+                </a>
+                <div class="language">
+                    <div class="earthicon"><img src="./src/img/language/earth.png"></div>
+                    <div id="us"><p>English</p></div>
+                    <div id="tw"><p>中文(繁體)</p></div>
+                </div>
+                <!-- <div class="lang-menu d-inline-block">
+                    <style id="fakecss-selected"></style>
+                    <div id="selected-lang" class="selected-lang"></div>
+                    <ul>
+                        <li>
+                            <a id="us" class="us">English</a>
+                        </li>
+                         <li>
+                            <a id="tw" class="tw">中文</a>
+                        </li>
+                    </ul>
+                </div> -->
+            </ul>
+        </div>
+    </header>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
-  <script type="module" src="/src/main.js"></script>
-</body>
+    <main class="index">
+        <section class="kv">
+            <video width="1920" height="1080" autoplay loop muted playsinline>
+                <source src="assets/images/kv.mp4" type="video/mp4">
+            </video>
+            <div class="kvBg">
+                <div class="kvBgBtm"></div>
+            </div>
+            <div class="dot"></div>
+            <div class="bgPattern01"><img src="assets/images/bgPattern01.png" alt=""></div>
+            <div class="full-container" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="300">
+                <div class="contentL">
+                    <div class="kvTitle">
+                        <h1 class="title" data-i18n="storm_title"></h1>
+                        <div><img src="assets/images/kvImg.png" alt="" class="img-fluid mb"></div>
 
-</html>
+                    </div>
+                    <div class="subTitle" data-i18n="storm_dominate">DOMINATE YOUR GAMING POTENTIAL</div>
+                    <div class="txt" data-i18n="storm_download">DOWNLOAD NOW AND GIVE ONE CONTROL</div>
+                    <button class="downloadBtn" onclick="window.location.href='sign_in.html'">
+                        <img src="assets/images/downloadBtn_windows.png" alt="">
+                    </button>
+                </div>
+                <div class="contentR pc">
+                    <img src="assets/images/kvImg.png" alt="" class="img-fluid">
+                </div>
+            </div>
+        </section>
+        <section class="stormBN">
+            <div data-aos="fade-in" data-aos-duration="1500" data-aos-delay="300">
+                <img src="assets/images/stormBN01.png" alt="" class="img-fluid">
+                <div class="stormThunder stormThunder01"><img src="assets/images/stormThunder01.png" alt=""></div>
+                <div class="stormThunder stormThunder02"><img src="assets/images/stormThunder02.png" alt=""></div>
+                <div class="stormIcon"><img src="assets/images/stormIcon01.png" alt=""></div>
+            </div>
+        </section>
+
+        <section class="comparison">
+            <div class="skyBg"><img src="assets/images/skyBg.png" alt=""></div>
+            <div class="container">
+                <div class="title" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">
+                    <img src="assets/images/comparison_title.png" alt="" class="img-fluid">
+                </div>
+                <div class="compareContent">
+                    <div class="compare_flex" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">
+                        <ul class="board functions">
+                            <li data-i18n="function">Functions</li>
+                        </ul>
+                        <ul class="board tableContent">
+                            <li class="compare_storm"><img src="assets/images/logo.svg" alt=""></li>
+                            <li class="compare_emulator" data-i18n="emulator">Emulator</li>
+                            <li class="compare_cloudPhone" data-i18n="cloud_phone">Cloud Phone</li>
+                        </ul>
+                    </div>
+                    <div class="compare_flex" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="900">
+                        <ul class="board funList">
+                            <li>
+                                <div data-i18n="multi_instance">Multi-Instance</div>
+                                <div data-i18n="multi_instance_sync">Multi-Instance Sync</div>
+                                <div data-i18n="auto_orientation">Auto Orientation</div>
+                                <div data-i18n="synchronizer">Synchronizer</div>
+                                <div data-i18n="players_own_scripts_recorder">Players Own Scripts Recorder</div>
+                                <div data-i18n="scripts_download">Scripts Download / Upload</div>
+                                <div data-i18n="scripts_library">Scripts Library</div>
+                                <div data-i18n="scripts_multi_instance">Scripts Multi-Instance</div>
+                                <div data-i18n="mission_scheduling">Mission Scheduling</div>
+                                <div data-i18n="scripts_store">Scripts Store</div>
+                                <div data-i18n="marketing_activities">Marketing Activities</div>
+                                <div class="h100" data-i18n="service_restrictions">Service Restrictions</div>
+                                <div data-i18n="operational_fluency">Operational Fluency</div>
+                            </li>
+                        </ul>
+                        <ul class="board contentList">
+                            <li class="compare_storm">
+                                <div><i class="fas fa-star"></i></div>
+                                <div><i class="fas fa-star"></i></div>
+                                <div><i class="fas fa-star"></i></div>
+                                <div><i class="fas fa-star"></i></div>
+                                <div><i class="fas fa-star"></i></div>
+                                <div><i class="fas fa-star"></i></div>
+                                <div><i class="fas fa-star"></i></div>
+                                <div><i class="fas fa-star"></i></div>
+                                <div><i class="fas fa-star"></i></div>
+                                <div><i class="fas fa-star"></i></div>
+                                <div><i class="fas fa-star"></i></div>
+                                <div class="h100"><span data-i18n="no_limit">NO</span><h6 data-i18n="allows_you">Allows you to Watch Lives、Movies and Download APP</h6></div>
+                                <div class="colorWhite" data-i18n="excellent">Excellent</div>
+                            </li>
+                            <li class="compare_emulator">
+                                <div><i class="fas fa-star"></i></div>
+                                <div><i class="fas fa-star"></i></div>
+                                <div><i class="fas fa-star"></i></div>
+                                <div><i class="fas fa-star"></i></div>
+                                <div><i class="fas fa-star"></i></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div class="h100"><span data-i18n="yes_limit">Yes</span><h6 data-i18n="not_allows_to">Not allow to Watch Lives、Movies or Download APP</h6></div>
+                                <div class="colorWhite" data-i18n="good">Good / 8000</div>
+                            </li>
+                            <li class="compare_cloudPhone">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div class="h100"><span data-i18n="yes_limit">Yes</span><h6 data-i18n="not_allows_to">Not allow to Watch Lives、Movies or Download APP</h6></div>
+                                <div class="colorWhite" data-i18n="poor">Poor / 6W</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="advantage">
+                    <div class="board advt" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="0">
+                        <div class="icon"><img src="assets/images/advt_icon01.svg" alt=""></div>
+                        <div class="advt_title" data-i18n="competitive_advantage">Competitive advantage in International market</div>
+                        <div class="content">
+                            <p data-i18n="global_international">Global international markets</p>
+                            <p data-i18n="game_studios"> Game studios, business marketing, individual users.</p>
+                            <p data-i18n="international_market">international market is widely used B2B, B2C</p>
+                        </div>
+                    </div>
+                    <div class="board advt advtDown" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="900">
+                        <div class="icon"><img src="assets/images/advt_icon02.svg" alt=""></div>
+                        <div class="advt_title"  data-i18n="APK_account">APK Account security free download APK</div>
+                        <div class="content">
+                            <p data-i18n="web_authorization">Web authorization system, data absolutely secure, APK download, convenient for users to download a variety of games or business APP.</p>
+                        </div>
+                    </div>
+                    <div class="board advt" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">
+                        <div class="icon"><img src="assets/images/advt_icon03.svg" alt=""></div>
+                        <div class="advt_title" data-i18n="separate_task">24H Separate task<br>NO lag</div>
+                        <div class="content">
+                            <p data-i18n="simple_to">Simple to operate, no data restrictions, no lag, for 24 H.</p>
+                        </div>
+                    </div>
+                    <div class="board advt advtUp" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1200">
+                        <div class="icon"><img src="assets/images/advt_icon04.svg" alt=""></div>
+                        <div class="advt_title" data-i18n="upgrade_group">Upgrade Group control</div>
+                        <div class="content">
+                            <p  data-i18n="group_control">Group control of 100 mobile phones.</p>
+                            <p  data-i18n="subgroup_easily">Subgroup easily.</p>
+                        </div>
+                    </div>
+                    <div class="board advt" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">
+                        <div class="icon"><img src="assets/images/advt_icon05.svg" alt=""></div>
+                        <div class="advt_title" data-i18n="shopping">Shopping</div>
+                        <div class="content">
+                            <p data-i18n="ultra_low">Ultra-low prices, USD3.00/month only， provide a variety of games or business scripts downloads to satisfy a variety of market needs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slider">
+            <div class="full-container">
+                <div class="slideBox" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="300">
+                    <div class="slideBN"><img src="assets/images/carousel_01.jpg" alt=""></div>
+                    <div class="slideBN"><img src="assets/images/carousel_01.jpg" alt=""></div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="gameSlider">
+            <div class="container">
+                <div class="title" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">
+                    <img src="assets/images/downloadGame_title.png" alt="" class="img-fluid">
+                </div>
+                <div class="gameList_for" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">
+                    <div class="gameDescArea">
+                        <div class="d-flex">
+                            <div class="gameImg" style="background-image:url('assets/images/gameView.png')"></div>
+                            <div class="gameDesc">
+                                <div class="gameTitle">GAMENAME01</div>
+                                <div class="gameContent">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
+                                <a href="#" class="moreBtn">MORE>></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gameDescArea">
+                        <div class="d-flex">
+                            <div class="gameImg" style="background-image:url('assets/images/gameView.png')"></div>
+                            <div class="gameDesc">
+                                <div class="gameTitle">GAMENAME02</div>
+                                <div class="gameContent">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
+                                <a href="#" class="moreBtn">MORE>></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gameDescArea">
+                        <div class="d-flex">
+                            <div class="gameImg" style="background-image:url('assets/images/gameView.png')"></div>
+                            <div class="gameDesc">
+                                <div class="gameTitle">GAMENAME03</div>
+                                <div class="gameContent">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
+                                <a href="#" class="moreBtn">MORE>></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gameDescArea">
+                        <div class="d-flex">
+                            <div class="gameImg" style="background-image:url('assets/images/gameView.png')"></div>
+                            <div class="gameDesc">
+                                <div class="gameTitle">GAMENAME04</div>
+                                <div class="gameContent">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
+                                <a href="#" class="moreBtn">MORE>></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gameDescArea">
+                        <div class="d-flex">
+                            <div class="gameImg" style="background-image:url('assets/images/gameView.png')"></div>
+                            <div class="gameDesc">
+                                <div class="gameTitle">GAMENAME05</div>
+                                <div class="gameContent">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
+                                <a href="#" class="moreBtn">MORE>></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="gameListArea" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">
+                    <div class="bgPattern01"><img src="assets/images/bgPattern01.png" alt=""></div>
+
+                    <hr>
+                    <div class="gameList">
+                        <div class="gameList_Left">
+                            <div class="gameList_title">TITLE</div>
+                            <div class="gameList_Txt">
+                                DOMINATE YOUR GAMING POTENTIAL<br>DOWNLOAD NOW AND GIVE ONE CONTROL
+                            </div>
+                        </div>
+                        <div class="gameListBg">
+                            <div class="gameList_selectBg"></div>
+                            <div class="gameList_Box">
+                                <div class="gameSlider_List">
+                                    <img src="assets/images/gameList01.png" alt="">
+                                    <p>GAMENAME</p>
+                                </div>
+                                <div class="gameSlider_List">
+                                    <img src="assets/images/gameList02.png" alt="">
+                                    <p>GAMENAME</p>
+                                </div>
+                                <div class="gameSlider_List">
+                                    <img src="assets/images/gameList03.png" alt="">
+                                    <p>GAMENAME</p>
+                                </div>
+                                <div class="gameSlider_List">
+                                    <img src="assets/images/gameList04.png" alt="">
+                                    <p>GAMENAME</p>
+                                </div>
+                                <div class="gameSlider_List">
+                                    <img src="assets/images/gameList01.png" alt="">
+                                    <p>GAMENAME</p>
+                                </div>
+                            </div>
+                            <div class="gameList_selectBorder"></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <div class="bgPattern02"><img src="assets/images/bgPattern02.png" alt=""></div>
+
+        <div class="full-container">
+            <div class="left">
+                <a href="index" class="logo"><img src="assets/images/logo.svg" alt=""></a>
+
+            </div>
+            <div class="right">
+                <ul>
+                    <li data-toggle="modal" data-target="#termofuse" data-i18n="terms_of_use" onclick="TermsOfUse()">Terms of use</li>
+                    <li data-toggle="modal" data-target="#privacypolicy" data-i18n="privacy_policy" onclick="privacyPolicy()">Privacy Policy</li>
+                    <li data-toggle="modal" data-target="#cookiepolicy" data-i18n="cookie_policy"onclick="cookiePolicy()">Cookie Policy</li>
+                </ul>
+                <div>Copyright © 2020. All Rights Reserved.</div>
+            </div>
+        </div>
+    </footer>
+
+</body></html>
+<div id="TermsOfUse"></div>
+<script src="assets/js/TermsOfUse.js"></script>
+<script src="./src/js/vendor/language/i18n.js"></script>
+<script>
+
+	AOS.init({
+		once: true,
+
+	});
+
+	$(window).bind('scroll resize', function(){
+		if($(this).scrollTop() >= 100){
+	        $('header').css('background-color','#000');
+	    }else{
+	    	$('header').css('background-color','transparent');
+	    }
+	}).scroll();
+
+    
+
+	$('.slideBox').slick({
+		dots: true,
+		arrows: true,
+		infinite: true,
+		autoplay: true,
+		speed: 1000,
+		slidesToShow: 1,
+		autoplaySpeed: 5000,
+		prevArrow: '<div class="slick-prev slide-prev"><i class="fas fa-chevron-left fa-2x"></i></div>',
+		nextArrow: '<div class="slick-next slide-next"><i class="fas fa-chevron-right fa-2x"></i></div>',
+	});
+
+
+
+	 $('.gameList_for').slick({
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		arrows: false,
+		fade: true,
+		asNavFor: '.gameList_Box'
+	});
+	$('.gameList_Box').slick({
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		asNavFor: '.gameList_for',
+		dots: true,
+		centerMode: true,
+		focusOnSelect: true,
+		prevArrow: '<div class="slick-prev slide-prev"><i class="fas fa-chevron-left"></i></div>',
+		nextArrow: '<div class="slick-next slide-next"><i class="fas fa-chevron-right"></i></div>',
+	});
+
+	$('.gameImgBox').slick({
+		dots: true,
+		arrows: false,
+		infinite: true,
+		autoplay: true,
+		speed: 1000,
+		slidesToShow: 3,
+		slidesToScroll: 3,
+		autoplaySpeed: 5000,
+	});
+
+
+
+	$(document).on('click','.close',function(){
+		$(this).addClass("open");
+		$(this).removeClass("close");
+		$(".navBar").css("right","0");
+	});
+	$(document).on('click','.open',function(){
+		$(this).addClass("close");
+		$(this).removeClass("open");
+		$(".navBar").css("right","-100%");
+	});
+
+	$("#birthDate").flatpickr({
+		dateFormat: "m-d-Y",
+	});
+
+	jQuery(document).ready(function($) {
+
+		$('#language').flagStrap({
+		    countries: {
+		        "TW": "TW",
+		        "JP": "JP",
+		        "US": "EN",
+
+		    },
+		    inputName: 'country',
+		    scrollable: false,
+		    scrollableHeight: "350px",
+		    onSelect: function(value, element) {
+		        //
+		    },
+		    placeholder: {
+		        value: "",
+		        text: ""
+		    }
+		});
+	});
+
+
+
+
+</script>
+

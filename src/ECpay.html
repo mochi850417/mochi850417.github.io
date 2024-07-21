@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>STORM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- <link rel="stylesheet" href="font/iconsmind-s/css/iconsminds.css" />
+    <link rel="stylesheet" href="font/simple-line-icons/css/simple-line-icons.css" />
+    <link rel="stylesheet" href="css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/vendor/bootstrap.rtl.only.min.css" />
+    <link rel="stylesheet" href="css/vendor/bootstrap-datepicker3.min.css" />
+    <link rel="stylesheet" href="css/vendor/component-custom-switch.min.css" />-->
+    <link rel="stylesheet" href="css/vendor/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/vendor/ecpay.css" />
+</head>
+
+<body>
+    <nav>   
+        
+    </nav>
+    <main>
+        <div class="wrapper">
+            <div class="payment">
+                <div id="productName">
+                    
+                </div>
+                <div class="flagPosition">
+                    <div class="lang-menu d-inline-block">
+                        <style id="fakecss-selected"></style>
+                        <div id="selected-lang" class="selected-lang"></div>
+                        <ul>
+                            <li>
+                                <a id="us" class="us">English</a>
+                            </li>
+                             <li>
+                                <a id="tw" class="tw">中文</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="promptMsg" class="promptMsg">
+                    <span data-i18n="check_btn_donate">
+                    點擊將捐贈發票至「財團法人OMG關懷社會愛心基金會」
+                    </span>
+                </div>
+                 <div id="promptCell" class="promptCell">
+                    <span>
+                    第一個字元 / 加 7個英數字符號 [0-9][A-Z][+][-][.]
+                    </span>
+                </div>
+                <div id="promptNature" class="promptNature">
+                    <span>
+                    前2碼為大寫英文[A-Z]後14碼為數字[0-9] 共16個字元
+                    </span>
+                </div>
+                <div id="promptTaxId" class="promptTaxId">
+                    <span>
+                    開啟統編時，無法使用自然人憑證作為載具
+                    </span>
+                </div>
+                <div class="form">
+                    
+                    <div id="donate" class="checkswitch">
+                        <label>捐贈<span class="prompt" onmouseover="promptMsg()" onmouseout="removePromptMsg()">[?]</span></label>
+                        <input type="checkbox" id="donateCheck" class="checkBtn" onchange="isChecked()">   
+                    </div>
+                    <div id="invoiceWrap" class="invoiceWrap">
+                    <div id="device" class="device">
+                        <div id="radioContainer" class="radioContainer">
+                            <input type="radio" name="radio" id="noDevice" class="radioDevice" onclick="noCheck()">
+                            <label for="noDevice">無載具</label>
+                            <style id="fakecss-nature"></style>
+                            <div id="natureControl"><input type="radio" name="radio" id="nature" class="radioNature" onclick="naturalbtn()">
+                            <label for="nature" id="natureLabel">自然人憑證</label></div>
+                            
+                            <input type="radio" name="radio" id="cellphone" class="radioDevice" onclick="cellbtn()"> 
+                            <label for="cellphone">手機載具</label>
+                        </div>
+                        <div class="card">
+                            <div id="radioNature" class="radioNature">
+                                <label class="labelNature">自然人憑證<span class="prompt" onmouseover="promptNature()" onmouseout="removePromptNature()">[?]</span></label>
+                                
+                                <input id="natureInput" type="text" placeholder="e.g. TP01234567890123" oninput="resultChecking()" maxlength="16">
+                            </div>
+                            <div id="radioCell" class="radioCell">
+                                <label class="labelCell">手機載具編號<span class="prompt" onmouseover="promptCell()" onmouseout="removePromptCell()">[?]</span></label>
+                                
+                                <input id="cellInput" type="text" placeholder="e.g. /ABC+123"  oninput="resultChecking()" maxlength="8">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="taxIdNumber" class="checkswitch">
+                        <label>需要公司統編<span class="prompt" onmouseover="promptTax()" onmouseout="removePromptTax()">[?]</span></label>
+                        <input type="checkbox" id="taxCheck" class="checkBtn disCheckBtn" onchange="taxChecked()">   
+                    </div>
+                    <div id="taxId" class="taxId">
+                        <div class="card">
+                            <label class="label">統一編號</label>
+                            <input type="text" id="taxID" placeholder="e.g. 12345678" oninput="resultChecking()" maxlength="8">
+                        </div>
+                        <div class="card">
+                            <label class="label">地址</label>
+                            <input type="text" id="customerAddr">
+                        </div>
+                    </div>
+                    </div>
+                    <div class="checkswitch countDisabled">
+                        <label>是否定期定額</label>
+                        <input type="checkbox" id="quota" class="checkBtn disableBtn" checked disabled>  <!-- onchange="periodicCheck()" 恢復可點選是否定期定額 -->
+                    </div>
+                    <div class="countPrice">
+                        <div id="count" class="count">
+                            <span>數量</span>
+                            <button class="btn minus-btn" type="button">-</button>
+                            <input type="text" id="changedInput" disabled value="1" min="1" max="9" step="1"/>
+                             <button class="btn plus-btn">+</button>
+                            <span>隻</span>
+                           
+                        </div>
+                        <div id="totalPrice" class="totalPrice"></div>
+                        
+                    </div>
+                    <div id="paybtn" class="paybtn">
+                        <button id="sendBtnImg" class="sendBtnImg"></button>
+                    </div>
+                    <div class="copyrightStorm">
+                        <p>STORM@ 2020</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+   
+    <!-- 
+
+    <script src="../src/js/vendor/language/i18n.js"></script>
+    
+     <script src="js/vendor/perfect-scrollbar.min.js"></script>
+     <script src="js/vendor/mousetrap.min.js"></script>
+    <script src="js/vendor/select2.full.js"></script>
+    <script src="js/vendor/bootstrap-tagsinput.min.js"></script>
+    <script src="js/vendor/jquery.validate/jquery.validate.min.js"></script>
+    <script src="js/vendor/jquery.validate/additional-methods.min.js"></script>
+    <script src="js/dore.script.js"></script>
+    <script src="js/scripts.js"></script>
+    
+    <script src="js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="js/vendor/moment.min.js"></script> -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/vendor/jquery-3.3.1.min.js"></script>
+    <script src="js/vendor/bootstrap-input-spinner.js"></script>
+    <script src="js/vendor/language/i18n.js"></script>
+    <script src="js/vendor/ECpay.js"></script>
+    <script src="js/vendor/getme.js" defer async></script>
+    <!-- <script src="js/vendor/accountNavigation.js" defer async></script> -->
+</body></html>
